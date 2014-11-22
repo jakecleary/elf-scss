@@ -43,6 +43,7 @@ $opposite: elf-get-opposite-layout-direction();
     float: $direction;
     width: calc(100% * #{$ratio} - #{$gutter} + #{$ratio} * #{$gutter});
     margin-#{$opposite}: $gutter;
+
     &:last-child {
         margin-#{$opposite}: 0;
     }
