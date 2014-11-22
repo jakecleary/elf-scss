@@ -29,3 +29,17 @@ $opposite: elf-get-opposite-layout-direction();
         background: rgba($color, 10%);
     }
 }
+
+/**
+* Set an element's width and margin-right gutter by ratio.
+* @param {number} [$ratio=1] - A width relative to its container as a fraction.
+* @param {string} [$gutter=$elf-gutter] - Specify the gutter width as any unit.
+*/
+@mixin column($ratio: 1, $gutter: $elf-gutter) {
+    float: $direction;
+    width: calc(100% * #{$ratio} - #{$gutter} + #{$ratio} * #{$gutter});
+    margin-#{$opposite}: $gutter;
+    &:last-child {
+        margin-#{$opposite}: 0;
+    }
+}
