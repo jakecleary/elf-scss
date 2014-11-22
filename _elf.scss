@@ -107,6 +107,8 @@ $opposite: elf-get-opposite-layout-direction();
  * @param {string} [$gutter:$elf-gutter] - Specify the gutter width as any unit.
  */
 @mixin shift($ratio: 1, $column-or-span: column, $gutter: $elf-gutter) {
+    $translate: 0 !default;
+
     position: relative;
 
     @if $column-or-span == column {
