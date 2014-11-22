@@ -139,3 +139,21 @@ $opposite: elf-get-opposite-layout-direction();
         justify-content: center;
     }
 }
+
+/**
+* Apply a clearfix to an element.
+*/
+%cf {
+    * {
+        zoom: 1;
+
+        &:before, &:after {
+            content: '';
+            display: table;
+        }
+
+        &:after {
+            clear: both;
+        }
+    }
+}
