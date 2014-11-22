@@ -81,7 +81,7 @@ $opposite: elf-get-opposite-layout-direction();
             margin-#{$opposite}: calc(-100% * #{$ratio} - #{$ratio} * #{$gutter} + #{$gutter});
         }
     } @else {
-        } @if $ratio >= 0 {
+        @if $ratio >= 0 {
             margin-#{$direction}: calc(100% * #{$ratio});
         } @else {
             margin-#{$opposite}: calc(-100% * #{$ratio});
