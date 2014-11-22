@@ -1,13 +1,13 @@
 // Settings
 $elf-gutter: 30px;
-$elf-content-direction: 'LTR';
+$elf-content-direction: LTR;
 
 /**
  * Return the configured layout direction for floats etc.
  * @return {string} - The direction in left/right format.
  */
 @function elf-get-layout-direction() {
-    @return if($elf-content-direction == 'LTR', 'left', 'right');
+    @return if($elf-content-direction == LTR, left, right);
 }
 
 /**
@@ -15,7 +15,7 @@ $elf-content-direction: 'LTR';
  * @return {string} - The direction in left/right format.
  */
 @function elf-get-opposite-layout-direction() {
-    @return if(elf-get-layout-direction() == 'left', 'right', 'left');
+    @return if(elf-get-layout-direction() == left, right, left);
 }
 
 /**
@@ -73,8 +73,8 @@ $opposite: elf-get-opposite-layout-direction();
  * @param {string} [$column-or-span:column] - Are you offsetting a column or a span element?
  * @param {string} [$gutter:$elf-gutter] - Specify the gutter width as any unit.
  */
-@mixin offset($ratio: 0, $column-or-span: 'column', $gutter: $elf-gutter) {
-    @if $column-or-span == 'column' {
+@mixin offset($ratio: 0, $column-or-span: column, $gutter: $elf-gutter) {
+    @if $column-or-span == column {
         @if $ratio >= 0 {
             margin-#{$direction}: calc(100% * #{$ratio} + #{$ratio} * #{$gutter});
         } @else {
@@ -104,10 +104,10 @@ $opposite: elf-get-opposite-layout-direction();
  * @param {string} [$column-or-span:column] - Are you shifting a column or a span element?
  * @param {string} [$gutter:$elf-gutter] - Specify the gutter width as any unit.
  */
-@mixin shift($ratio: 1, $column-or-span: 'column', $gutter: $elf-gutter) {
+@mixin shift($ratio: 1, $column-or-span: column, $gutter: $elf-gutter) {
     position: relative;
 
-    @if $column-or-span == 'column' {
+    @if $column-or-span == column {
         $translate: calc(100% * #{$ratio} + #{$ratio} * #{$gutter});
     } @else {
         $translate: calc(100% * #{$ratio});
@@ -128,19 +128,19 @@ $opposite: elf-get-opposite-layout-direction();
  * Apply this mixin to containing elements in order to add flexbox centering to any element.
  * @param {string} [$direction:both] - Accepts 'both', 'vertical', or 'horizontal'.
  */
-@mixin align($direction: 'both') {
+@mixin align($direction: both) {
     display: flex;
 
-    @if $direction == 'both' {
+    @if $direction == both {
         justify-content: center;
         align-items: center;
     }
 
-    @if $direction == 'vertical' {
+    @if $direction == vertical {
         align-items: center;
     }
 
-    @if $direction == 'horizontal' {
+    @if $direction == horizontal {
         justify-content: center;
     }
 }
