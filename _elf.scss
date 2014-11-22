@@ -43,3 +43,21 @@ $opposite: elf-get-opposite-layout-direction();
         margin-#{$opposite}: 0;
     }
 }
+
+/**
+* Make elements automatically drop down a row when the specified item is reached.
+* @param {number} [$item=0] - Item to be the last in the row.
+* @param {string} [$uncycle=0] - Cycle to be reset. Useful in media queries.
+* @param {string} [$gutter=$elf-gutter] - Specify the gutter width as any unit.
+*/
+@mixin cycle($item: 0, $uncycle: 0, $gutter: $elf-gutter) {
+    @if $uncycle > 0 {
+        &:nth-child(#{$uncycle}n) {
+            margin-#{$opposite}: $gutter;
+        }
+    }
+    
+    &:nth-child(#{$item}n) {
+        margin-#{$opposite}: 0;
+    }
+}
