@@ -19,3 +19,13 @@ $elf-content-direction: 'LTR';
 */
 $direction: elf-get-layout-direction();
 $opposite: elf-get-opposite-layout-direction();
+
+/**
+ * Enable debugging environment that applies a translucent background to every element on the page.
+ * @param {string} [$color=blue] - The color to be lightened in the debugging environment.
+ */
+@mixin debug($color: blue) {
+    * {
+        background: rgba($color, 10%);
+    }
+}
