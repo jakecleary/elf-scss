@@ -19,10 +19,10 @@ View [elf.scss](_elf.scss) for mixin and parameter descriptions.
 - `align($direction: 'both')`
 - `%cf`
 
-<!-- #### CodePens
-- [Forkable](http://codepen.io/corysimmons/pen/dPParo)
-- [Importable](http://codepen.io/corysimmons/pen/qEEgvW)
-- [Collection of Examples](http://codepen.io/collection/nLKJkX/) -->
+#### CodePens
+- [Forkable](http://codepen.io/clear-y/pen/pvvBqN)
+- [Importable](http://codepen.io/clear-y/pen/oggOQP)
+- [Collection of Examples](http://codepen.io/collection/nLKJkX/)
 
 #### Browser Support
 - General http://caniuse.com/#search=calc
