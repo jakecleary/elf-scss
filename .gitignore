@@ -1,0 +1,7 @@
+# General
+.DS_Store
+
+# Scss
+.sass-cache
+elf.css
+elf.css.map
