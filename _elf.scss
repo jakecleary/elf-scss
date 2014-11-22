@@ -83,3 +83,30 @@ $opposite: elf-get-opposite-layout-direction();
         }
     }
 }
+
+/**
+* Set an element's width as a fraction.
+* @param {number} [$ratio=1] - A width relative to its container as a fraction.
+*/
+@mixin span($ratio: 1) {
+    float: $direction;
+    width: calc(100% * #{$ratio});
+}
+
+/**
+* Useful for source ordering. Shift elements to the left and right with positive and negative integers.
+* @param {number} [$ratio=0] - Fraction to be used in the shift.
+* @param {string} [$column-or-span=column] - Are you shifting a column or a span element?
+* @param {string} [$gutter=$elf-gutter] - Specify the gutter width as any unit.
+*/
+@mixin shift($ratio: 1, $column-or-span: 'column', $gutter: $elf-gutter) {
+    position: relative;
+
+    @if $column-or-span == 'column' {
+        $translate: calc(100% * #{$ratio} + #{$ratio} * #{$gutter});
+    } @else {
+        $translate: calc(100% * #{$ratio});
+    }
+
+    #{$direction}: $translate;
+}
