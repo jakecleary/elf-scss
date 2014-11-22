@@ -30,7 +30,7 @@ $opposite: elf-get-opposite-layout-direction();
  */
 @mixin debug($color: blue) {
     * {
-        background: rgba($color, 10%);
+        background: rgba($color, .1);
     }
 }
 
