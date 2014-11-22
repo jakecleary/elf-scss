@@ -7,6 +7,15 @@ $elf-content-direction: 'LTR';
 * @return {string} result - The direction in left/right format.
 */
 @function elf-get-layout-direction() {
-    $elf-content-direction == 'LTR'  $result = 'left' : $result = 'right';
-    @return $result;
+    @return if($elf-content-direction == 'LTR', 'left', 'right');
 }
+
+@function elf-get-opposite-layout-direction() {
+    @return if(elf-get-layout-direction() == 'left', 'right', 'left');
+}
+
+/**
+* Set up the layout direction.
+*/
+$direction: elf-get-layout-direction();
+$opposite: elf-get-opposite-layout-direction();
