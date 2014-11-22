@@ -2,7 +2,7 @@
 
 #### Installation
 
-Copy and paste [elf.scss](elf.scss) to your project and then:
+Copy and paste [elf.scss](_elf.scss) to your project and then:
 
 ```scss
 @import 'path/to/elf';
@@ -10,18 +10,18 @@ Copy and paste [elf.scss](elf.scss) to your project and then:
 
 #### API
 
-View [elf.scss](elf.scss) for mixin and parameter descriptions.
+View [elf.scss](_elf.scss) for mixin and parameter descriptions.
 
 ```scss
-debug($color = 'blue')
-column($ratio = 1, $gutter = $elf-gutter)
-cycle($item = 0, $uncycle = 0, $gutter = $elf-gutter)
-offset($ratio = 0, $column-or-span = 'column', $gutter = $elf-gutter)
-span($ratio = 1)
-shift($ratio = 1, $column-or-span = 'column', $gutter = $elf-gutter)
-unshift()
-align($direction = 'both')
-cf()
+debug($color: 'blue');
+column($ratio: 1, $gutter: $elf-gutter);
+cycle($item: 0, $uncycle: 0, $gutter: $elf-gutter);
+offset($ratio: 0, $column-or-span: 'column', $gutter: $elf-gutter);
+span($ratio: 1);
+shift($ratio: 1, $column-or-span: 'column', $gutter: $elf-gutter);
+unshift();
+align($direction: 'both');
+%cf;
 ```
 
 <!-- #### CodePens
