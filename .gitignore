@@ -1,5 +1,6 @@
 # General
 .DS_Store
+/index.html
 
 # Scss
 .sass-cache
