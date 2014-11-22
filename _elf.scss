@@ -110,3 +110,11 @@ $opposite: elf-get-opposite-layout-direction();
 
     #{$direction}: $translate;
 }
+
+/**
+* Useful for source ordering. Removes affects applied by shift().
+*/
+@mixin unshift() {
+    position: static;
+    #{$direction}: 0;
+}
