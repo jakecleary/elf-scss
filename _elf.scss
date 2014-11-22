@@ -3,26 +3,30 @@ $elf-gutter: 30px;
 $elf-content-direction: 'LTR';
 
 /**
-* Return the configured layout direction for floats etc.
-* @return {string} result - The direction in left/right format.
-*/
+ * Return the configured layout direction for floats etc.
+ * @return {string} - The direction in left/right format.
+ */
 @function elf-get-layout-direction() {
     @return if($elf-content-direction == 'LTR', 'left', 'right');
 }
 
+/**
+ * Return the opposite of the configured layout direction for floats etc.
+ * @return {string} - The direction in left/right format.
+ */
 @function elf-get-opposite-layout-direction() {
     @return if(elf-get-layout-direction() == 'left', 'right', 'left');
 }
 
 /**
-* Set up the layout direction.
-*/
+ * Set up the layout direction.
+ */
 $direction: elf-get-layout-direction();
 $opposite: elf-get-opposite-layout-direction();
 
 /**
  * Enable debugging environment that applies a translucent background to every element on the page.
- * @param {string} [$color=blue] - The color to be lightened in the debugging environment.
+ * @param {string} [$color:blue] - The color to be lightened in the debugging environment.
  */
 @mixin debug($color: blue) {
     * {
@@ -31,10 +35,10 @@ $opposite: elf-get-opposite-layout-direction();
 }
 
 /**
-* Set an element's width and margin-right gutter by ratio.
-* @param {number} [$ratio=1] - A width relative to its container as a fraction.
-* @param {string} [$gutter=$elf-gutter] - Specify the gutter width as any unit.
-*/
+ * Set an element's width and margin-right gutter by ratio.
+ * @param {number} [$ratio:1] - A width relative to its container as a fraction.
+ * @param {string} [$gutter:$elf-gutter] - Specify the gutter width as any unit.
+ */
 @mixin column($ratio: 1, $gutter: $elf-gutter) {
     float: $direction;
     width: calc(100% * #{$ratio} - #{$gutter} + #{$ratio} * #{$gutter});
@@ -45,11 +49,11 @@ $opposite: elf-get-opposite-layout-direction();
 }
 
 /**
-* Make elements automatically drop down a row when the specified item is reached.
-* @param {number} [$item=0] - Item to be the last in the row.
-* @param {string} [$uncycle=0] - Cycle to be reset. Useful in media queries.
-* @param {string} [$gutter=$elf-gutter] - Specify the gutter width as any unit.
-*/
+ * Make elements automatically drop down a row when the specified item is reached.
+ * @param {number} [$item:0] - Item to be the last in the row.
+ * @param {string} [$uncycle:0] - Cycle to be reset. Useful in media queries.
+ * @param {string} [$gutter:$elf-gutter] - Specify the gutter width as any unit.
+ */
 @mixin cycle($item: 0, $uncycle: 0, $gutter: $elf-gutter) {
     @if $uncycle > 0 {
         &:nth-child(#{$uncycle}n) {
@@ -63,11 +67,11 @@ $opposite: elf-get-opposite-layout-direction();
 }
 
 /**
-* Offset elements from one another.
-* @param {number} [$ratio=0] - Fraction to be used to offset.
-* @param {string} [$column-or-span=column] - Are you offsetting a column or a span element?
-* @param {string} [$gutter=$elf-gutter] - Specify the gutter width as any unit.
-*/
+ * Offset elements from one another.
+ * @param {number} [$ratio:0] - Fraction to be used to offset.
+ * @param {string} [$column-or-span:column] - Are you offsetting a column or a span element?
+ * @param {string} [$gutter:$elf-gutter] - Specify the gutter width as any unit.
+ */
 @mixin offset($ratio: 0, $column-or-span: 'column', $gutter: $elf-gutter) {
     @if $column-or-span == 'column' {
         @if $ratio >= 0 {
@@ -85,20 +89,20 @@ $opposite: elf-get-opposite-layout-direction();
 }
 
 /**
-* Set an element's width as a fraction.
-* @param {number} [$ratio=1] - A width relative to its container as a fraction.
-*/
+ * Set an element's width as a fraction.
+ * @param {number} [$ratio:1] - A width relative to its container as a fraction.
+ */
 @mixin span($ratio: 1) {
     float: $direction;
     width: calc(100% * #{$ratio});
 }
 
 /**
-* Useful for source ordering. Shift elements to the left and right with positive and negative integers.
-* @param {number} [$ratio=0] - Fraction to be used in the shift.
-* @param {string} [$column-or-span=column] - Are you shifting a column or a span element?
-* @param {string} [$gutter=$elf-gutter] - Specify the gutter width as any unit.
-*/
+ * Useful for source ordering. Shift elements to the left and right with positive and negative integers.
+ * @param {number} [$ratio:0] - Fraction to be used in the shift.
+ * @param {string} [$column-or-span:column] - Are you shifting a column or a span element?
+ * @param {string} [$gutter:$elf-gutter] - Specify the gutter width as any unit.
+ */
 @mixin shift($ratio: 1, $column-or-span: 'column', $gutter: $elf-gutter) {
     position: relative;
 
@@ -112,17 +116,17 @@ $opposite: elf-get-opposite-layout-direction();
 }
 
 /**
-* Useful for source ordering. Removes affects applied by shift().
-*/
+ * Useful for source ordering. Removes affects applied by shift().
+ */
 @mixin unshift() {
     position: static;
     #{$direction}: 0;
 }
 
 /**
-* Apply this mixin to containing elements in order to add flexbox centering to any element.
-* @param {string} [$direction=both] - Accepts 'both', 'vertical', or 'horizontal'.
-*/
+ * Apply this mixin to containing elements in order to add flexbox centering to any element.
+ * @param {string} [$direction:both] - Accepts 'both', 'vertical', or 'horizontal'.
+ */
 @mixin align($direction: 'both') {
     display: flex;
 
