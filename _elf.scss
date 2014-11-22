@@ -1,0 +1,12 @@
+// Settings
+$elf-gutter: 30px;
+$elf-content-direction: 'LTR';
+
+/**
+* Return the configured layout direction for floats etc.
+* @return {string} result - The direction in left/right format.
+*/
+@function elf-get-layout-direction() {
+    $elf-content-direction == 'LTR'  $result = 'left' : $result = 'right';
+    @return $result;
+}
