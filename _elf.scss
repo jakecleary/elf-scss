@@ -56,8 +56,30 @@ $opposite: elf-get-opposite-layout-direction();
             margin-#{$opposite}: $gutter;
         }
     }
-    
+
     &:nth-child(#{$item}n) {
         margin-#{$opposite}: 0;
+    }
+}
+
+/**
+* Offset elements from one another.
+* @param {number} [$ratio=0] - Fraction to be used to offset.
+* @param {string} [$column-or-span=column] - Are you offsetting a column or a span element?
+* @param {string} [$gutter=$elf-gutter] - Specify the gutter width as any unit.
+*/
+@mixin offset($ratio: 0, $column-or-span: 'column', $gutter: $elf-gutter) {
+    @if $column-or-span == 'column' {
+        @if $ratio >= 0 {
+            margin-#{$direction}: calc(100% * #{$ratio} + #{$ratio} * #{$gutter});
+        } @else {
+            margin-#{$opposite}: calc(-100% * #{$ratio} - #{$ratio} * #{$gutter} + #{$gutter});
+        }
+    } @else {
+        } @if $ratio >= 0 {
+            margin-#{$direction}: calc(100% * #{$ratio});
+        } @else {
+            margin-#{$opposite}: calc(-100% * #{$ratio});
+        }
     }
 }
