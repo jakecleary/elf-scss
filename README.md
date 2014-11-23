@@ -1,6 +1,6 @@
 <img src="http://corysimmons.github.io/elf/img/elf.svg" height="120px">
 
-**The official port of [Elf](https://github.com/corysimmons/elf): the Stylus grid system.**
+**Prefer [Stylus](https://github.com/corysimmons/elf)?**
 
 ### Features
 - Unlimited nesting with consistently sized gutters.
