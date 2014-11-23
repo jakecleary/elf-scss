@@ -25,9 +25,9 @@ View [_elf.scss](_elf.scss) for mixin and parameter descriptions.
 - `debug($color: 'blue')`
 - `column($ratio: 1, $gutter: $elf-gutter)`
 - `cycle($item: 0, $uncycle: 0, $gutter: $elf-gutter)`
-- `offset($ratio: 0, $column-or-span: 'column', $gutter: $elf-gutter)`
+- `offset($ratio: 0, $column: true, $gutter: $elf-gutter)`
 - `span($ratio: 1)`
-- `shift($ratio: 1, $column-or-span: 'column', $gutter: $elf-gutter)`
+- `shift($ratio: 1, $column: true, $gutter: $elf-gutter)`
 - `unshift()`
 - `align($direction: 'both')`
 

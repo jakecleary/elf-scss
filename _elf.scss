@@ -72,11 +72,11 @@ $opposite: elf-get-opposite-layout-direction();
 /**
  * Offset elements from one another.
  * @param {number} [$ratio:0] - Fraction to be used to offset.
- * @param {string} [$column-or-span:column] - Are you offsetting a column or a span element?
+ * @param {boolean} [$column:true] - Are you offsetting a column?
  * @param {string} [$gutter:$elf-gutter] - Specify the gutter width as any unit.
  */
-@mixin offset($ratio: 0, $column-or-span: column, $gutter: $elf-gutter) {
-    @if $column-or-span == column {
+@mixin offset($ratio: 0, $column: true, $gutter: $elf-gutter) {
+    @if $column == true {
         @if $ratio >= 0 {
             margin-#{$direction}: calc(100% * #{$ratio} + #{$ratio} * #{$gutter});
         } @else {
@@ -103,15 +103,15 @@ $opposite: elf-get-opposite-layout-direction();
 /**
  * Useful for source ordering. Shift elements to the left and right with positive and negative integers.
  * @param {number} [$ratio:0] - Fraction to be used in the shift.
- * @param {string} [$column-or-span:column] - Are you shifting a column or a span element?
+ * @param {boolean} [$column:true] - Are you shifting a column?
  * @param {string} [$gutter:$elf-gutter] - Specify the gutter width as any unit.
  */
-@mixin shift($ratio: 1, $column-or-span: column, $gutter: $elf-gutter) {
+@mixin shift($ratio: 1, $column: true, $gutter: $elf-gutter) {
     $translate: 0 !default;
 
     position: relative;
 
-    @if $column-or-span == column {
+    @if $column == true {
         $translate: calc(100% * #{$ratio} + #{$ratio} * #{$gutter});
     } @else {
         $translate: calc(100% * #{$ratio});
