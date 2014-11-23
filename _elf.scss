@@ -138,14 +138,12 @@ $opposite: elf-get-opposite-layout-direction();
     @if $direction == both {
         justify-content: center;
         align-items: center;
-    }
-
-    @if $direction == vertical {
+    } @elseif $direction == vertical {
         align-items: center;
-    }
-
-    @if $direction == horizontal {
+    } @elseif $direction == horizontal {
         justify-content: center;
+    } @else {
+        @warn '$direction must be set to either "both", "vertical, or "horizontal"';
     }
 }
 
