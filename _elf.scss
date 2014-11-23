@@ -146,21 +146,3 @@ $opposite: elf-get-opposite-layout-direction();
         @warn '$direction must be set to either "both", "vertical, or "horizontal"';
     }
 }
-
-/**
-* Apply a clearfix to an element.
-*/
-%cf {
-    * {
-        zoom: 1;
-
-        &:before, &:after {
-            content: '';
-            display: table;
-        }
-
-        &:after {
-            clear: both;
-        }
-    }
-}

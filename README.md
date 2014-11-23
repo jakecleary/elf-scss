@@ -30,7 +30,6 @@ View [_elf.scss](_elf.scss) for mixin and parameter descriptions.
 - `shift($ratio: 1, $column-or-span: 'column', $gutter: $elf-gutter)`
 - `unshift()`
 - `align($direction: 'both')`
-- `%cf`
 
 #### Browser Support
 - General http://caniuse.com/#search=calc
