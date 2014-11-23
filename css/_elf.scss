@@ -1,0 +1,168 @@
+// v1.0.0
+
+// Settings
+$elf-gutter: 30px !default;
+$elf-content-direction: LTR !default;
+
+/**
+ * Return the configured layout direction for floats etc.
+ * @return {string} - The direction in left/right format.
+ */
+@function elf-get-layout-direction() {
+    @return if($elf-content-direction == LTR, left, right);
+}
+
+/**
+ * Return the opposite of the configured layout direction for floats etc.
+ * @return {string} - The direction in left/right format.
+ */
+@function elf-get-opposite-layout-direction() {
+    @return if(elf-get-layout-direction() == left, right, left);
+}
+
+/**
+ * Set up the layout direction.
+ */
+$direction: elf-get-layout-direction();
+$opposite: elf-get-opposite-layout-direction();
+
+/**
+ * Enable debugging environment that applies a translucent background to every element on the page.
+ * @param {string} [$color:blue] - The color to be lightened in the debugging environment.
+ */
+@mixin debug($color: blue) {
+    * {
+        background: rgba($color, .1);
+    }
+}
+
+/**
+ * Set an element's width and margin-right gutter by ratio.
+ * @param {number} [$ratio:1] - A width relative to its container as a fraction.
+ * @param {string} [$gutter:$elf-gutter] - Specify the gutter width as any unit.
+ */
+@mixin column($ratio: 1, $gutter: $elf-gutter) {
+    float: $direction;
+    width: calc(100% * #{$ratio} - #{$gutter} + #{$ratio} * #{$gutter});
+    margin-#{$opposite}: $gutter;
+
+    &:last-child {
+        margin-#{$opposite}: 0;
+    }
+}
+
+/**
+ * Make elements automatically drop down a row when the specified item is reached.
+ * @param {number} [$item:0] - Item to be the last in the row.
+ * @param {string} [$uncycle:0] - Cycle to be reset. Useful in media queries.
+ * @param {string} [$gutter:$elf-gutter] - Specify the gutter width as any unit.
+ */
+@mixin cycle($item: 0, $uncycle: 0, $gutter: $elf-gutter) {
+    @if $uncycle > 0 {
+        &:nth-child(#{$uncycle}n) {
+            margin-#{$opposite}: $gutter;
+        }
+    }
+
+    &:nth-child(#{$item}n) {
+        margin-#{$opposite}: 0;
+    }
+}
+
+/**
+ * Offset elements from one another.
+ * @param {number} [$ratio:0] - Fraction to be used to offset.
+ * @param {string} [$column-or-span:column] - Are you offsetting a column or a span element?
+ * @param {string} [$gutter:$elf-gutter] - Specify the gutter width as any unit.
+ */
+@mixin offset($ratio: 0, $column-or-span: column, $gutter: $elf-gutter) {
+    @if $column-or-span == column {
+        @if $ratio >= 0 {
+            margin-#{$direction}: calc(100% * #{$ratio} + #{$ratio} * #{$gutter});
+        } @else {
+            margin-#{$opposite}: calc(-100% * #{$ratio} - #{$ratio} * #{$gutter} + #{$gutter});
+        }
+    } @else {
+        @if $ratio >= 0 {
+            margin-#{$direction}: calc(100% * #{$ratio});
+        } @else {
+            margin-#{$opposite}: calc(-100% * #{$ratio});
+        }
+    }
+}
+
+/**
+ * Set an element's width as a fraction.
+ * @param {number} [$ratio:1] - A width relative to its container as a fraction.
+ */
+@mixin span($ratio: 1) {
+    float: $direction;
+    width: calc(100% * #{$ratio});
+}
+
+/**
+ * Useful for source ordering. Shift elements to the left and right with positive and negative integers.
+ * @param {number} [$ratio:0] - Fraction to be used in the shift.
+ * @param {string} [$column-or-span:column] - Are you shifting a column or a span element?
+ * @param {string} [$gutter:$elf-gutter] - Specify the gutter width as any unit.
+ */
+@mixin shift($ratio: 1, $column-or-span: column, $gutter: $elf-gutter) {
+    $translate: 0 !default;
+
+    position: relative;
+
+    @if $column-or-span == column {
+        $translate: calc(100% * #{$ratio} + #{$ratio} * #{$gutter});
+    } @else {
+        $translate: calc(100% * #{$ratio});
+    }
+
+    #{$direction}: $translate;
+}
+
+/**
+ * Useful for source ordering. Removes affects applied by shift().
+ */
+@mixin unshift() {
+    position: static;
+    #{$direction}: 0;
+}
+
+/**
+ * Apply this mixin to containing elements in order to add flexbox centering to any element.
+ * @param {string} [$direction:both] - Accepts 'both', 'vertical', or 'horizontal'.
+ */
+@mixin align($direction: both) {
+    display: flex;
+
+    @if $direction == both {
+        justify-content: center;
+        align-items: center;
+    }
+
+    @if $direction == vertical {
+        align-items: center;
+    }
+
+    @if $direction == horizontal {
+        justify-content: center;
+    }
+}
+
+/**
+* Apply a clearfix to an element.
+*/
+%cf {
+    * {
+        zoom: 1;
+
+        &:before, &:after {
+            content: '';
+            display: table;
+        }
+
+        &:after {
+            clear: both;
+        }
+    }
+}

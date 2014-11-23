@@ -1,0 +1,177 @@
+@import url(reset.css);
+/**
+ * Return the configured layout direction for floats etc.
+ * @return {string} - The direction in left/right format.
+ */
+/**
+ * Return the opposite of the configured layout direction for floats etc.
+ * @return {string} - The direction in left/right format.
+ */
+/**
+ * Set up the layout direction.
+ */
+/**
+ * Enable debugging environment that applies a translucent background to every element on the page.
+ * @param {string} [$color:blue] - The color to be lightened in the debugging environment.
+ */
+/**
+ * Set an element's width and margin-right gutter by ratio.
+ * @param {number} [$ratio:1] - A width relative to its container as a fraction.
+ * @param {string} [$gutter:$elf-gutter] - Specify the gutter width as any unit.
+ */
+/**
+ * Make elements automatically drop down a row when the specified item is reached.
+ * @param {number} [$item:0] - Item to be the last in the row.
+ * @param {string} [$uncycle:0] - Cycle to be reset. Useful in media queries.
+ * @param {string} [$gutter:$elf-gutter] - Specify the gutter width as any unit.
+ */
+/**
+ * Offset elements from one another.
+ * @param {number} [$ratio:0] - Fraction to be used to offset.
+ * @param {string} [$column-or-span:column] - Are you offsetting a column or a span element?
+ * @param {string} [$gutter:$elf-gutter] - Specify the gutter width as any unit.
+ */
+/**
+ * Set an element's width as a fraction.
+ * @param {number} [$ratio:1] - A width relative to its container as a fraction.
+ */
+/**
+ * Useful for source ordering. Shift elements to the left and right with positive and negative integers.
+ * @param {number} [$ratio:0] - Fraction to be used in the shift.
+ * @param {string} [$column-or-span:column] - Are you shifting a column or a span element?
+ * @param {string} [$gutter:$elf-gutter] - Specify the gutter width as any unit.
+ */
+/**
+ * Useful for source ordering. Removes affects applied by shift().
+ */
+/**
+ * Apply this mixin to containing elements in order to add flexbox centering to any element.
+ * @param {string} [$direction:both] - Accepts 'both', 'vertical', or 'horizontal'.
+ */
+/**
+* Apply a clearfix to an element.
+*/
+section * {
+  zoom: 1; }
+  section *:before, section *:after {
+    content: '';
+    display: table; }
+  section *:after {
+    clear: both; }
+
+html {
+  padding: 3rem; }
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #444; }
+
+h1 {
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 100; }
+
+h1, h2 {
+  margin: 0 0 1rem; }
+
+code {
+  font-family: 'Source Code Pro', monospace; }
+
+section {
+  overflow: hidden; }
+  section h2 {
+    font-size: 1.5rem;
+    line-height: 1;
+    border-bottom: 1px solid #f2f2f2;
+    padding: 0 0 1rem;
+    margin: 5rem 0 1.5rem; }
+    section h2 small {
+      display: block;
+      width: 100%;
+      margin-top: 10px;
+      color: #5e5e5e;
+      font-weight: 100; }
+
+.block {
+  background: #CCC;
+  text-align: center;
+  padding: 1rem;
+  height: 150px;
+  line-height: 120px;
+  border-radius: 6px; }
+
+#column .block {
+  float: left;
+  width: calc(100% * 0.33333 - 30px + 0.33333 * 30px);
+  margin-right: 30px;
+  height: 150px;
+  margin-bottom: 30px; }
+  #column .block:last-child {
+    margin-right: 0; }
+  #column .block:nth-child(3n) {
+    margin-right: 0; }
+  @media (max-width: 800px) {
+    #column .block {
+      float: left;
+      width: calc(100% * 0.5 - 30px + 0.5 * 30px);
+      margin-right: 30px; }
+      #column .block:last-child {
+        margin-right: 0; }
+      #column .block:nth-child(3n) {
+        margin-right: 30px; }
+      #column .block:nth-child(2n) {
+        margin-right: 0; } }
+
+#offset .block {
+  float: left;
+  width: calc(100% * 0.33333 - 30px + 0.33333 * 30px);
+  margin-right: 30px; }
+  #offset .block:last-child {
+    margin-right: 0; }
+  #offset .block:nth-child(2) {
+    margin-left: calc(100% * 0.33333 + 0.33333 * 30px); }
+
+#span .block {
+  float: left;
+  width: calc(100% * 0.33333);
+  height: 150px;
+  border-radius: 0; }
+  #span .block:first-child {
+    border-radius: 6px 0 0 0; }
+  #span .block:nth-child(3) {
+    border-radius: 0 6px 0 0; }
+  #span .block:nth-child(7) {
+    border-radius: 0 0 0 6px; }
+  #span .block:last-child {
+    border-radius: 0 0 6px 0; }
+  #span .block:nth-child(2n) {
+    background: #f2f2f2; }
+
+#shift .block {
+  float: left;
+  width: calc(100% * 0.5 - 30px + 0.5 * 30px);
+  margin-right: 30px; }
+  #shift .block:last-child {
+    margin-right: 0; }
+  #shift .block:nth-child(1) {
+    position: relative;
+    left: calc(100% * 0.5 + 0.5 * 30px); }
+  #shift .block:nth-child(2) {
+    position: relative;
+    left: calc(100% * -0.5 + -0.5 * 30px); }
+
+#valign .content {
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  border-radius: 6px;
+  height: 300px;
+  background: #f2f2f2; }
+#valign .block {
+  float: left;
+  width: calc(100% * 0.33333 - 30px + 0.33333 * 30px);
+  margin-right: 30px; }
+  #valign .block:last-child {
+    margin-right: 0; }
+
+/*# sourceMappingURL=style.css.map */
