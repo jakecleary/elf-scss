@@ -132,7 +132,7 @@ $opposite: elf-get-opposite-layout-direction();
  * Apply this mixin to containing elements in order to add flexbox centering to any element.
  * @param {string} [$direction:both] - Accepts 'both', 'vertical', or 'horizontal'.
  */
-@mixin align($direction: both) {
+@mixin align-children($direction: both) {
     display: flex;
 
     @if $direction == both {

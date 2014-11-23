@@ -29,7 +29,7 @@ View [_elf.scss](_elf.scss) for mixin and parameter descriptions.
 - `span($ratio: 1)`
 - `shift($ratio: 1, $column: true, $gutter: $elf-gutter)`
 - `unshift()`
-- `align($direction: 'both')`
+- `align-children($direction: 'both')`
 
 #### Browser Support
 - General http://caniuse.com/#search=calc
