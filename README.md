@@ -1,4 +1,4 @@
-<img src="http://corysimmons.github.io/elf/img/elf.svg" height="120px">
+<img src="http://jakecleary.github.io/elf-scss/img/elf.svg" height="120px">
 
 **Prefer [Stylus](https://github.com/corysimmons/elf)?**
 
