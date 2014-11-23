@@ -1,0 +1,29 @@
+{
+    "name": "elf-scss",
+    "version": "1.1.0",
+    "homepage": "https://github.com/jakecleary/elf-scss",
+    "authors": [
+        "Jake Cleary <shout@jakecleary.net>"
+    ],
+    "description": "A small but powerful Stylus grid built with calc(), ported to Scss",
+    "main": "_elf.scss",
+    "keywords": [
+        "grid",
+        "scss",
+        "responsive",
+        "calc"
+    ],
+    "license": "MIT",
+    "ignore": [
+        "**/.*",
+        ".sass-cache",
+        ".editorconfig",
+        "elf.css",
+        "elf.css.map",
+        "index.html",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ]
+}
