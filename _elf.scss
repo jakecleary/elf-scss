@@ -1,13 +1,13 @@
 // Settings
 $elf-gutter: 30px !default;
-$elf-content-direction: LTR !default;
+$elf-content-direction: "LTR" !default;
 
 /**
  * Return the configured layout direction for floats etc.
  * @return {string} - The direction in left/right format.
  */
 @function elf-get-layout-direction() {
-    @return if($elf-content-direction == LTR, left, right);
+    @return if($elf-content-direction == "LTR", left, right);
 }
 
 /**
@@ -130,15 +130,15 @@ $opposite: elf-get-opposite-layout-direction();
  * Apply this mixin to containing elements in order to add flexbox centering to any element.
  * @param {string} [$direction:both] - Accepts 'both', 'vertical', or 'horizontal'.
  */
-@mixin align-children($direction: both) {
+@mixin align-children($direction: "both") {
     display: flex;
 
-    @if $direction == both {
+    @if $direction == "both" {
         justify-content: center;
         align-items: center;
-    } @elseif $direction == vertical {
+    } @elseif $direction == "vertical" {
         align-items: center;
-    } @elseif $direction == horizontal {
+    } @elseif $direction == "horizontal" {
         justify-content: center;
     } @else {
         @warn '`$direction` parameter must be set to either `both`, `vertical` or `horizontal`. Given: `#{$direction}`.';
