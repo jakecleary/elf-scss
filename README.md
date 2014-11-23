@@ -10,11 +10,6 @@
 - Tiny file size compared to other ratio grid systems.
 - Flexbox makes short work of aligning elements vertically and horizontally.
 
-#### CodePens
-- [Forkable](http://codepen.io/clear-y/pen/pvvBqN)
-- [Importable](http://codepen.io/clear-y/pen/oggOQP)
-- [Collection of Examples](http://codepen.io/collection/nLKJkX/)
-
 #### Installation
 - Copy and paste [_elf.scss](_elf.scss) to your project
 - `@import 'path/to/elf';`
