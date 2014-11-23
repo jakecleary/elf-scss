@@ -33,4 +33,4 @@ View [_elf.scss](_elf.scss) for mixin and parameter descriptions.
 
 #### Browser Support
 - General http://caniuse.com/#search=calc
-- `align()` http://caniuse.com/#search=flexbox
+- `align-children()` http://caniuse.com/#search=flexbox
