@@ -132,6 +132,7 @@ $opposite: elf-get-opposite-layout-direction();
  */
 @mixin align-children($direction: "both") {
     display: flex;
+    flex-wrap: flex;
 
     @if $direction == "both" {
         justify-content: center;
